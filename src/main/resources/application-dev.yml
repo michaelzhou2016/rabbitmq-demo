@@ -1,0 +1,13 @@
+spring:
+  rabbitmq:
+    addresses: 10.139.60.131:5672
+    username: kkuser
+    password: kkuser123
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 2
+        max-concurrency: 8
+
+server:
+  port: 8088

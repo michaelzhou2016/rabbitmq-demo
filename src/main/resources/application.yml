@@ -1,0 +1,16 @@
+spring:
+  rabbitmq:
+    addresses: 10.139.60.131:5672
+    username: kkuser
+    password: kkuser123
+    listener:
+      simple:
+        retry:
+          enabled: true
+          multiplier: 1
+          max-attempts: 3
+          initial-interval: 1000ms
+          max-interval: 10000ms
+
+server:
+  port: 8080
