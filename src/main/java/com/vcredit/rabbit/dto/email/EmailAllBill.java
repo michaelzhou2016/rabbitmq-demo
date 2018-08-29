@@ -1,34 +1,39 @@
-/**  
- * Project Name:api-webhook  
- * File Name:EmailBill.java  
- * Package Name:com.example.service.webhook.billitem  
- * Date:2016年7月19日下午3:26:59  
- * Copyright (c) 2016, yuandong@51dojo.com All Rights Reserved.  
- *  
-*/  
-  
-package com.vcredit.rabbit.dto;
+/**
+ * Project Name:api-webhook
+ * File Name:EmailBill.java
+ * Package Name:com.example.service.webhook.billitem
+ * Date:2016年7月19日下午3:26:59
+ * Copyright (c) 2016, yuandong@51dojo.com All Rights Reserved.
+ */
 
+package com.vcredit.rabbit.dto.email;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 
-/**  
+/**
  * ClassName:EmailBill <br/>  
  * Function: TODO ADD FUNCTION. <br/>  
  * Reason:   TODO ADD REASON. <br/>  
  * Date:     2016年7月19日 下午3:26:59 <br/>  
- * @author   yuandong  
- * @version    
- * @since    JDK 1.6  
- * @see        
+ * @author yuandong
+ * @version
+ * @since JDK 1.6
+ * @see
  */
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EmailAllBill implements Serializable {
-    private static final long serialVersionUID = 3098258835637485156L;
+    private static final long serialVersionUID = 7865519413795478333L;
     @JsonProperty("task_id")
-	private String taskId;
+    private String taskId;
     @JsonProperty("email_id")
     private String emailId;  //emailId是一个邮箱在魔蝎数据中的唯一标识，和邮箱是1V1
     @JsonProperty("email")

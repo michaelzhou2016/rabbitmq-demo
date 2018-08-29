@@ -5,9 +5,14 @@ spring:
     password: kkuser123
     listener:
       simple:
-        acknowledge-mode: manual
+        retry:
+          enabled: true
+          multiplier: 1
+          max-attempts: 3
+          initial-interval: 1000ms
+          max-interval: 10000ms
         concurrency: 2
         max-concurrency: 8
 
 server:
-  port: 8088
+  port: 8080
