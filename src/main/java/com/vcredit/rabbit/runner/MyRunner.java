@@ -21,14 +21,16 @@ public class MyRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Thread.sleep(1000);
-        EmailAllBill emailAllBill = new EmailAllBill();
-        emailAllBill.setUserId("zhouliliang");
-        emailAllBill.setEmail("strength_zhou@126.com");
-        rabbitTemplate.convertAndSend("ex_email", "test.email", emailAllBill);
+        for (int i = 0; i < 100; i++) {
+            EmailAllBill emailAllBill = new EmailAllBill();
+            emailAllBill.setUserId("zhouliliang" + i);
+            emailAllBill.setEmail("strength_zhou@126.com");
+            rabbitTemplate.convertAndSend("ex_email", "test.email", emailAllBill);
 
-        BankAllBill bankAllBill = new BankAllBill();
-        bankAllBill.setUserId("yucunduo");
-        bankAllBill.setTaskId("123");
-        rabbitTemplate.convertAndSend("ex_bank", "test.bank", bankAllBill);
+            BankAllBill bankAllBill = new BankAllBill();
+            bankAllBill.setUserId("yucunduo" + i);
+            bankAllBill.setTaskId("123");
+            rabbitTemplate.convertAndSend("ex_bank", "test.bank", bankAllBill);
+        }
     }
 }
